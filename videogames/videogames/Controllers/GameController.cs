@@ -2,6 +2,7 @@
 using System.Transactions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using videogames.Model;
 using videogames.Repostory.interfaces;
 
@@ -12,17 +13,17 @@ namespace videogames.Controllers
     public class GameController : ControllerBase
     {
         private readonly IGame _game;
-        private readonly ILogger<GameController> _logger;
 
-        public GameController(IGame game, ILogger<GameController> logger)
+
+        public GameController(IGame game)
         {
             _game = game;
-            logger = _logger;
         }
         
         [HttpGet]
         public IActionResult GetAll()
         {
+            Log.Information("test services");
             var games = _game.findAll();
             return new OkObjectResult(games);
         }
@@ -48,7 +49,8 @@ namespace videogames.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                Log.Error("Error" + ex.Message);
+                
                 return new NoContentResult();
             }
         }

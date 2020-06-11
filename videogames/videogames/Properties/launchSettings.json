@@ -24,11 +24,7 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "AllowedHosts": "*",
-      "ConnectionStrings": {
-        "postgres_sql": "Host=localhost;Port=5432;Database=videogames;User ID=admin;password=admin"
-      }
+      }      
     }
   }
 }

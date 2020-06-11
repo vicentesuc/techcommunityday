@@ -12,8 +12,7 @@ namespace videogames.Model
         [Column("title")]
         public string title { get; set; }
         
-        [Column]
+        [Column("phrase")]
         public string phrase { get; set; }
-        
     }
 }
