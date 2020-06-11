@@ -8,7 +8,7 @@ using videogames.Repostory.interfaces;
 
 namespace videogames.Controllers
 {
-    [Route("rest/controller")]
+    [Route("rest/game")]
     [ApiController]
     public class GameController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace videogames.Controllers
             return new OkObjectResult(games);
         }
         
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult GetById([FromRoute] long id)
         {
             var game = _game.findBy(id);

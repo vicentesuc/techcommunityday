@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace videogames.Model
 {
-    [Table("games",Schema = "public")]
+    [Table("game",Schema = "public")]
     public class Game
     {
         [Key,Column("id")]
