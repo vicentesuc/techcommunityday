@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Evolve.Migration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -50,14 +51,11 @@ namespace videogames
                 var cnx = new Npgsql.NpgsqlConnection( Configuration.GetConnectionString("postgres_sql"));
                 var evolve = new Evolve.Evolve(cnx, msg => Log.Information(msg))
                 {
-                    Locations = new[] {"Resources/postgres-sql"},
+                    Locations = new[] {"Resources/db"},
                     IsEraseDisabled = true,
-                    Placeholders = new Dictionary<string, string>
-                    {
-                        ["${table4}"] = "table4"
-                    }
+                    MetadataTableName = "schema_version"
                 };
-
+                
                 evolve.Migrate();
             }
             catch (Exception ex)

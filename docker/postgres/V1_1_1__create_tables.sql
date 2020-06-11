@@ -1,4 +1,4 @@
-﻿create sequence game_sequence increment by 1 start with 1;
+create sequence game_sequence increment by 1 start with 1;
 
 create table game
 (
