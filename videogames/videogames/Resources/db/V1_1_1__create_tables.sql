@@ -9,6 +9,8 @@ create table if NOT EXISTS  game
 
 insert into game( title, phrase) values ('mass effect 2','Is simply awe-inspiring ');
 insert into game( title, phrase) values ('the last of us','the most beautiful game seen on any console');
+insert into game( title, phrase) values ('gears of war','always brothers , always in action');
+insert into game( title, phrase) values ('gears of war','always brothers , always in action');
 
 
 
